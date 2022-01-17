@@ -3,7 +3,7 @@ import './CompanyCard.css';
 
 const CompanyCard = () => {
 	return (
-		<div className="CompanyCard.css">
+		<div className="CompanyCard">
 			<h1>Company Card</h1>
 		</div>
 	);

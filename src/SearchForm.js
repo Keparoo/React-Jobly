@@ -3,7 +3,7 @@ import './SearchForm.css';
 
 const SearchForm = () => {
 	return (
-		<div className="SearchForm.css">
+		<div className="SearchForm">
 			<h1>SearchForm</h1>
 		</div>
 	);

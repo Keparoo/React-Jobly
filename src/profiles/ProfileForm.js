@@ -3,7 +3,7 @@ import React from 'react';
 
 const ProfileForm = () => {
 	return (
-		<div className="ProfileForm.css">
+		<div className="ProfileForm">
 			<h1>Profile Form</h1>
 		</div>
 	);

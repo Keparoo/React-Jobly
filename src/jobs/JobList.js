@@ -5,7 +5,7 @@ import JobCardList from './JobCardList';
 
 const JobList = () => {
 	return (
-		<div className="JobList.css">
+		<div className="JobList">
 			<h1>Jobs</h1>
 			<SearchForm />
 			<JobCardList />

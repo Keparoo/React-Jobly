@@ -4,7 +4,7 @@ import JobCard from './JobCard';
 
 const JobCardList = () => {
 	return (
-		<div className="JobCardList.css">
+		<div className="JobCardList">
 			<h1>JobCardList</h1>
 			<JobCard />
 		</div>

@@ -5,7 +5,7 @@ import CompanyCard from './CompanyCard';
 
 const CompanyList = () => {
 	return (
-		<div className="CompanyList.css">
+		<div className="CompanyList">
 			<h1>Companies Page</h1>
 			<SearchForm />
 			<CompanyCard />

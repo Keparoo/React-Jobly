@@ -3,7 +3,7 @@ import React from 'react';
 
 const SignupForm = () => {
 	return (
-		<div className="SignupForm.css">
+		<div className="SignupForm">
 			<h1>Signup Form</h1>
 		</div>
 	);
