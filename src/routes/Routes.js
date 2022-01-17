@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Companies from './CompanyList';
-import CompanyCard from './CompanyCard';
-import JobList from './JobList';
-import SignupForm from './SignupForm';
-import LoginForm from './LoginForm';
-import Profile from './ProfileForm';
-import Homepage from './Homepage';
+import Companies from '../companies/CompanyList';
+import CompanyCard from '../companies/CompanyCard';
+import JobList from '../jobs/JobList';
+import SignupForm from '../auth/SignupForm';
+import LoginForm from '../auth/LoginForm';
+import Profile from '../profiles/ProfileForm';
+import Homepage from '../homepage/Homepage';
 
 const Routes = () => {
 	return (
