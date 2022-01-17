@@ -11,15 +11,21 @@ const SearchForm = () => {
 	};
 
 	return (
-		<form className="SearchForm" onSubmit={handleSubmit}>
-			<input
-				type="text"
-				name="query"
-				value={formData.query}
-				onChange={handleChange}
-			/>
-			<button>Search</button>
-		</form>
+		<div className="SearchForm mb-4 mt-2">
+			<form className="form-inline" onSubmit={handleSubmit}>
+				<input
+					className="form-control form-control-lg flex-grow-1"
+					type="text"
+					name="query"
+					placeholder="Please enter a search term..."
+					value={formData.query}
+					onChange={handleChange}
+				/>
+				<button type="submit" className="btn btn-lg btn-primary">
+					Search
+				</button>
+			</form>
+		</div>
 	);
 };
 

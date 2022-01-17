@@ -23,10 +23,9 @@ const CompanyList = () => {
 	}
 
 	return (
-		<div className="CompanyList">
-			<h1>Companies Page</h1>
+		<div className="CompanyList col-md-8 offset-md-2">
 			<SearchForm />
-			<div className="CompanyList-companies container">
+			<div className="CompanyList-list">
 				{companies.map((c) => (
 					<CompanyCard
 						key={c.handle}
