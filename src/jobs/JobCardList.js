@@ -1,10 +1,12 @@
 import React from 'react';
 // import './JobCardList.css';
+import JobCard from './JobCard';
 
 const JobCardList = () => {
 	return (
 		<div className="JobCardList.css">
 			<h1>JobCardList</h1>
+			<JobCard />
 		</div>
 	);
 };

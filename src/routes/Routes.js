@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Companies from '../companies/CompanyList';
-import CompanyCard from '../companies/CompanyCard';
+import CompanyList from '../companies/CompanyList';
+import CompanyDetails from '../companies/CompanyDetails';
 import JobList from '../jobs/JobList';
 import SignupForm from '../auth/SignupForm';
 import LoginForm from '../auth/LoginForm';
@@ -12,10 +12,10 @@ const Routes = () => {
 	return (
 		<Switch>
 			<Route exact path="/companies">
-				<Companies />
+				<CompanyList />
 			</Route>
 			<Route exact path="/companies/:company">
-				<CompanyCard />
+				<CompanyDetails />
 			</Route>
 			<Route exact path="/jobs">
 				<JobList />

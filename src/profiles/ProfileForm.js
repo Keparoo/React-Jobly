@@ -1,5 +1,5 @@
 import React from 'react';
-import './ProfileForm.css';
+// import './ProfileForm.css';
 
 const ProfileForm = () => {
 	return (
