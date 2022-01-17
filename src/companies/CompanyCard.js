@@ -5,13 +5,17 @@ const CompanyCard = ({ name, description, numEmployees, logoUrl }) => {
 	return (
 		<div className="CompanyCard card">
 			<div className="card-body">
-				<h6 className="card-title">
+				<h5 className="card-title">
 					{name}
 					{logoUrl && (
 						<img src={logoUrl} alt={''} className="float-right ml-5" />
 					)}
-				</h6>
-				<p>Num Employees: {numEmployees}</p>
+				</h5>
+				<p>
+					<small>
+						Num Employees: <strong>{numEmployees}</strong>
+					</small>
+				</p>
 				<p>
 					<small>{description}</small>
 				</p>
