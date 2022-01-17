@@ -8,8 +8,8 @@ function App() {
 	return (
 		<BrowserRouter>
 			<div className="App">
-				<h1>React Jobly</h1>
 				<Navbar />
+				<h1>React Jobly</h1>
 				<Routes />
 			</div>
 		</BrowserRouter>
