@@ -9,7 +9,6 @@ function App() {
 		<BrowserRouter>
 			<div className="App">
 				<Navbar />
-				<h1>React Jobly</h1>
 				<Routes />
 			</div>
 		</BrowserRouter>
