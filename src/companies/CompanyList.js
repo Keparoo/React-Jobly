@@ -26,7 +26,7 @@ const CompanyList = () => {
 		<div className="CompanyList">
 			<h1>Companies Page</h1>
 			<SearchForm />
-			<div className="CompanyList-companies">
+			<div className="CompanyList-companies container">
 				{companies.map((c) => (
 					<CompanyCard
 						key={c.handle}
