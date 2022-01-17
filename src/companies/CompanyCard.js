@@ -1,10 +1,13 @@
 import React from 'react';
 import './CompanyCard.css';
 
-const CompanyCard = () => {
+const CompanyCard = ({ name, description, numEmployees, logoUrl }) => {
 	return (
 		<div className="CompanyCard">
-			<h1>Company Card</h1>
+			<h3>{name}</h3>
+			<p>{description}</p>
+			<p>{numEmployees}</p>
+			<p>{logoUrl}</p>
 		</div>
 	);
 };

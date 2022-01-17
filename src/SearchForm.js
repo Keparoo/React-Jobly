@@ -1,11 +1,25 @@
 import React from 'react';
+import useForm from './hooks/useForm';
 import './SearchForm.css';
 
 const SearchForm = () => {
+	const [ formData, handleChange, resetForm ] = useForm({ query: '' });
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		resetForm();
+	};
+
 	return (
-		<div className="SearchForm">
-			<h1>SearchForm</h1>
-		</div>
+		<form className="SearchForm" onSubmit={handleSubmit}>
+			<input
+				type="text"
+				name="query"
+				value={formData.query}
+				onChange={handleChange}
+			/>
+			<button>Search</button>
+		</form>
 	);
 };
 
