@@ -3,16 +3,15 @@ import React, { useState, useEffect } from 'react';
 import JoblyApi from '../api/api';
 import SearchForm from '../SearchForm';
 import JobCard from './JobCard';
+import Spinner from '../Spinner';
 
 const JobList = () => {
-	const [ isLoading, setIsLoading ] = useState(false);
 	const [ jobs, setJobs ] = useState([]);
 
 	useEffect(() => {
 		async function getJobs() {
 			let jobs = await JoblyApi.getJobs();
 			setJobs(jobs);
-			setIsLoading(false);
 		}
 
 		getJobs();
@@ -23,9 +22,7 @@ const JobList = () => {
 		setJobs(jobs);
 	};
 
-	if (isLoading) {
-		return <p>Loading &hellip;</p>;
-	}
+	if (!jobs) return <Spinner />;
 
 	return (
 		<div className="JobList col-md-8 offset-md-2">

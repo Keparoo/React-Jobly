@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom';
 import JoblyApi from '../api/api';
 import SearchForm from '../SearchForm';
 import CompanyCard from './CompanyCard';
+import Spinner from '../Spinner';
 
 const CompanyList = () => {
-	const [ isLoading, setIsLoading ] = useState(false);
 	const [ companies, setCompanies ] = useState([]);
 
 	useEffect(() => {
 		async function getCompanies() {
 			let companies = await JoblyApi.getCompanies();
 			setCompanies(companies);
-			setIsLoading(false);
 		}
 
 		getCompanies();
@@ -24,10 +23,7 @@ const CompanyList = () => {
 		setCompanies(companies);
 	};
 
-	if (isLoading) {
-		return <p>Loading &hellip;</p>;
-	}
-	// console.log('In Company', query);
+	if (!companies) return <Spinner />;
 
 	return (
 		<div className="CompanyList col-md-8 offset-md-2">
