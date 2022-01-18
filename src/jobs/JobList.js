@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 // import './JobList.css';
 import JoblyApi from '../api/api';
 import SearchForm from '../SearchForm';
-// import JobCard from './JobCard';
 import JobCardList from './JobCardList';
 import Spinner from '../Spinner';
 
