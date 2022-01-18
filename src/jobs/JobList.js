@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 // import './JobList.css';
 import JoblyApi from '../api/api';
 import SearchForm from '../SearchForm';
-import JobCard from './JobCard';
+// import JobCard from './JobCard';
+import JobCardList from './JobCardList';
 import Spinner from '../Spinner';
 
 const JobList = () => {
@@ -27,17 +28,7 @@ const JobList = () => {
 	return (
 		<div className="JobList col-md-8 offset-md-2">
 			<SearchForm setQuery={search} />
-			<div className="CompanyList-list">
-				{jobs.map((j) => (
-					<JobCard
-						key={j.id}
-						title={j.title}
-						equity={j.equity}
-						company={j.companyName}
-						handle={j.companyHandle}
-					/>
-				))}
-			</div>
+			<JobCardList jobs={jobs} />
 		</div>
 	);
 };

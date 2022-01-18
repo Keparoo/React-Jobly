@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 // import './CompanyDetails.css';
 import JoblyApi from '../api/api';
-import JobCard from '../jobs/JobCard';
+import JobCardList from '../jobs/JobCardList';
 import CompanyCard from './CompanyCard';
 import Spinner from '../Spinner';
 
@@ -37,17 +37,7 @@ const CompanyDetails = () => {
 				logoUrl={company.logoUrl}
 			/>
 			<h3 className="mt-4 mb-4">Jobs</h3>
-			<div className="CompanyList-list">
-				{company.jobs.map((j) => (
-					<JobCard
-						key={j.id}
-						title={j.title}
-						equity={j.equity}
-						company={j.companyName}
-						handle={j.companyHandle}
-					/>
-				))}
-			</div>
+			<JobCardList jobs={company.jobs} />
 			<button
 				onClick={() => history.goBack()}
 				className="btn btn-primary font-weight-bold"

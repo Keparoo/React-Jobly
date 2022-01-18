@@ -2,11 +2,18 @@ import React from 'react';
 // import './JobCardList.css';
 import JobCard from './JobCard';
 
-const JobCardList = () => {
+const JobCardList = ({ jobs }) => {
 	return (
 		<div className="JobCardList">
-			<h1>JobCardList</h1>
-			<JobCard />
+			{jobs.map((j) => (
+				<JobCard
+					key={j.id}
+					title={j.title}
+					equity={j.equity}
+					company={j.companyName}
+					handle={j.companyHandle}
+				/>
+			))}
 		</div>
 	);
 };
