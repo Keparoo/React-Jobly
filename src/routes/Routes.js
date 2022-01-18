@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import CompanyList from '../companies/CompanyList';
 import CompanyDetails from '../companies/CompanyDetails';
@@ -14,7 +14,7 @@ const Routes = () => {
 			<Route exact path="/companies">
 				<CompanyList />
 			</Route>
-			<Route exact path="/companies/:company">
+			<Route exact path="/companies/:handle">
 				<CompanyDetails />
 			</Route>
 			<Route exact path="/jobs">

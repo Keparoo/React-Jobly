@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 // import './CompanyList.css';
 import JoblyApi from '../api/api';
 import SearchForm from '../SearchForm';
@@ -33,13 +34,15 @@ const CompanyList = () => {
 			<SearchForm setQuery={search} />
 			<div className="CompanyList-list">
 				{companies.map((c) => (
-					<CompanyCard
-						key={c.handle}
-						name={c.name}
-						description={c.description}
-						numEmployees={c.numEmployees}
-						logoUrl={c.logoUrl}
-					/>
+					<Link key={c.handle} to={`/companies/${c.handle}`}>
+						<CompanyCard
+							key={c.handle}
+							name={c.name}
+							description={c.description}
+							numEmployees={c.numEmployees}
+							logoUrl={c.logoUrl}
+						/>
+					</Link>
 				))}
 			</div>
 		</div>
