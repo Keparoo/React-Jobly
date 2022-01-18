@@ -7,12 +7,9 @@ import CompanyCard from './CompanyCard';
 import Spinner from '../Spinner';
 
 const CompanyDetails = () => {
-	console.log('Company Details');
 	const { handle } = useParams();
 	const history = useHistory();
 	const [ company, setCompany ] = useState(null);
-
-	console.log(handle);
 
 	useEffect(
 		() => {
