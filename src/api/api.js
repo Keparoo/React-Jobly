@@ -34,11 +34,18 @@ class JoblyApi {
 
 	// Individual API routes
 
-	/** Get details on a company by handle. */
+	/** Get list of companies filtered by query if query is not undefined */
 
-	static async getCompanies() {
-		let res = await this.request(`companies`);
+	static async getCompanies(query) {
+		let res = await this.request(`companies`, { name: query });
 		return res.companies;
+	}
+
+	/** Get list of companies filtered by query if query is not undefined */
+
+	static async getJobs(query) {
+		let res = await this.request(`jobs`, { name: query });
+		return res.jobs;
 	}
 
 	/** Get details on a company by handle. */

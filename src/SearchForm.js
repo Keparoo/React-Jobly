@@ -2,11 +2,12 @@ import React from 'react';
 import useForm from './hooks/useForm';
 import './SearchForm.css';
 
-const SearchForm = () => {
+const SearchForm = ({ setQuery }) => {
 	const [ formData, handleChange, resetForm ] = useForm({ query: '' });
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		setQuery(formData.query.trim() || undefined);
 		resetForm();
 	};
 

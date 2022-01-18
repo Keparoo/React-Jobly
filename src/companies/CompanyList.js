@@ -18,13 +18,19 @@ const CompanyList = () => {
 		getCompanies();
 	}, []);
 
+	const search = async (query) => {
+		let companies = await JoblyApi.getCompanies(query);
+		setCompanies(companies);
+	};
+
 	if (isLoading) {
 		return <p>Loading &hellip;</p>;
 	}
+	// console.log('In Company', query);
 
 	return (
 		<div className="CompanyList col-md-8 offset-md-2">
-			<SearchForm />
+			<SearchForm setQuery={search} />
 			<div className="CompanyList-list">
 				{companies.map((c) => (
 					<CompanyCard
