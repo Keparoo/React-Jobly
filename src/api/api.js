@@ -44,7 +44,7 @@ class JoblyApi {
 	/** Get list of companies filtered by query if query is not undefined */
 
 	static async getJobs(query) {
-		let res = await this.request(`jobs`, { name: query });
+		let res = await this.request(`jobs`, { title: query });
 		return res.jobs;
 	}
 
