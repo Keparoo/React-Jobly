@@ -36,6 +36,7 @@ const SignupForm = ({ signup }) => {
 							<div className="form-group">
 								<label className="float-left">Username</label>
 								<input
+									autoFocus
 									className="form-control"
 									type="text"
 									name="username"
