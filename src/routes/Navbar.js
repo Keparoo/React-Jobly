@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import UserContext from '../auth/UserContext';
 import './Navbar.css';
 
 const Navbar = ({ logout }) => {
-	return (
-		<nav className="Navbar navbar navbar-expand-md">
-			<Link className="navbar-brand" to="/">
-				Jobly
-			</Link>
+	const { currentUser } = useContext(UserContext);
+
+	const loggedIn = () => {
+		return (
 			<ul className="navbar-nav ml-auto">
 				<li className="nav-item mr-4">
 					<NavLink className="nav-link" to="/companies">
@@ -25,6 +25,18 @@ const Navbar = ({ logout }) => {
 					</NavLink>
 				</li>
 				<li className="nav-item mr-4">
+					<Link className="nav-link" to="/" onClick={logout}>
+						Log out {currentUser.firstName || currentUser.username}
+					</Link>
+				</li>
+			</ul>
+		);
+	};
+
+	const loggedOut = () => {
+		return (
+			<ul className="navbar-nav ml-auto">
+				<li className="nav-item mr-4">
 					<NavLink className="nav-link" to="/login">
 						Login
 					</NavLink>
@@ -34,12 +46,15 @@ const Navbar = ({ logout }) => {
 						Signup
 					</NavLink>
 				</li>
-				<li className="nav-item mr-4">
-					<Link className="nav-link" to="/" onClick={logout}>
-						Log out
-					</Link>
-				</li>
 			</ul>
+		);
+	};
+	return (
+		<nav className="Navbar navbar navbar-expand-md">
+			<Link className="navbar-brand" to="/">
+				Jobly
+			</Link>
+			{currentUser ? loggedIn() : loggedOut()}
 		</nav>
 	);
 };

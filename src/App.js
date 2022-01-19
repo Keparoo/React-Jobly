@@ -7,7 +7,7 @@ import Navbar from './routes/Navbar';
 import Routes from './routes/Routes';
 import UserContext from './auth/UserContext';
 import Spinner from './Spinner';
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
 import useLocalStorage from './hooks/useLocalStorage';
 
 const App = () => {
@@ -20,9 +20,11 @@ const App = () => {
 			const getCurrentUser = async () => {
 				if (token) {
 					try {
-						let { username } = jwt.decode(token);
-						JoblyApi.token = token;
+						// let { username } = jwt.decode(token);
+						let username = 'testuser';
+						// JoblyApi.token = token;
 						let currentUser = await JoblyApi.getCurrentUser(username);
+						console.log(currentUser);
 						setCurrentUser(currentUser);
 					} catch (err) {
 						console.error('Error loading user data', err);
