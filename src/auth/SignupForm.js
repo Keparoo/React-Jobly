@@ -6,9 +6,9 @@ import { useHistory } from 'react-router-dom';
 const SignupForm = ({ signup }) => {
 	const history = useHistory();
 	const [ formData, handleChange, resetForm ] = useForm({
-		userName: '',
+		username: '',
 		password: '',
-		firstname: '',
+		firstName: '',
 		lastName: '',
 		email: ''
 	});
@@ -36,7 +36,7 @@ const SignupForm = ({ signup }) => {
 								<input
 									className="form-control"
 									type="text"
-									name="userName"
+									name="username"
 									value={formData.username}
 									onChange={handleChange}
 								/>
