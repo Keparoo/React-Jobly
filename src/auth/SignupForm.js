@@ -21,9 +21,9 @@ const SignupForm = ({ signup }) => {
 		if (result.success) {
 			history.push('/companies');
 		} else {
+			resetForm();
 			setFormErrors(result.errors);
 		}
-		resetForm();
 	};
 
 	return (

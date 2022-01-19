@@ -9,7 +9,7 @@ import Profile from '../profiles/ProfileForm';
 import Homepage from '../homepage/Homepage';
 import JoblyApi from '../api/api';
 
-const Routes = ({ signup }) => {
+const Routes = ({ login, signup }) => {
 	return (
 		<Switch>
 			<Route exact path="/companies">
@@ -22,10 +22,10 @@ const Routes = ({ signup }) => {
 				<JobList />
 			</Route>
 			<Route exact path="/signup">
-				<SignupForm signup={JoblyApi.signup} />
+				<SignupForm signup={signup} />
 			</Route>
 			<Route exact path="/login">
-				<LoginForm />
+				<LoginForm login={login} />
 			</Route>
 			<Route exact path="/profile">
 				<Profile />
