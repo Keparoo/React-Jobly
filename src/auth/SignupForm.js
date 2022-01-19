@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useForm from '../hooks/useForm';
 import { useHistory } from 'react-router-dom';
 // import './SignupForm.css';
+import Alert from './Alert';
 
 const SignupForm = ({ signup }) => {
 	const history = useHistory();
@@ -12,14 +13,15 @@ const SignupForm = ({ signup }) => {
 		lastName: '',
 		email: ''
 	});
+	const [ formErrors, setFormErrors ] = useState([]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let result = await signup(formData);
 		if (result.success) {
-			history.pushState('/companies');
+			history.push('/companies');
 		} else {
-			console.log(result.errors);
+			setFormErrors(result.errors);
 		}
 		resetForm();
 	};
@@ -81,13 +83,18 @@ const SignupForm = ({ signup }) => {
 									onChange={handleChange}
 								/>
 							</div>
+
+							{formErrors.length ? (
+								<Alert type="danger" messages={formErrors} />
+							) : null}
+
+							<button
+								type="submit"
+								className="btn btn-lg btn-primary float-right"
+							>
+								Submit
+							</button>
 						</form>
-						<button
-							type="submit"
-							className="btn btn-lg btn-primary float-right"
-						>
-							Submit
-						</button>
 					</div>
 				</div>
 			</div>
