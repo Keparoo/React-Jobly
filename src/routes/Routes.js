@@ -7,29 +7,29 @@ import SignupForm from '../auth/SignupForm';
 import LoginForm from '../auth/LoginForm';
 import Profile from '../profiles/ProfileForm';
 import Homepage from '../homepage/Homepage';
-// import JoblyApi from '../api/api';
+import LoggedInRoute from './LoggedInRoute';
 
 const Routes = ({ login, signup }) => {
 	return (
 		<Switch>
-			<Route exact path="/companies">
+			<LoggedInRoute exact path="/companies">
 				<CompanyList />
-			</Route>
-			<Route exact path="/companies/:handle">
+			</LoggedInRoute>
+			<LoggedInRoute exact path="/companies/:handle">
 				<CompanyDetails />
-			</Route>
-			<Route exact path="/jobs">
+			</LoggedInRoute>
+			<LoggedInRoute exact path="/jobs">
 				<JobList />
-			</Route>
+			</LoggedInRoute>
 			<Route exact path="/signup">
 				<SignupForm signup={signup} />
 			</Route>
 			<Route exact path="/login">
 				<LoginForm login={login} />
 			</Route>
-			<Route exact path="/profile">
+			<LoggedInRoute exact path="/profile">
 				<Profile />
-			</Route>
+			</LoggedInRoute>
 			<Route exact path="/">
 				<Homepage />
 			</Route>

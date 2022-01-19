@@ -20,9 +20,9 @@ const App = () => {
 			const getCurrentUser = async () => {
 				if (token) {
 					try {
-						// let { username } = jwt.decode(token);
-						let username = 'testuser';
-						// JoblyApi.token = token;
+						let { username } = jwt.decode(token);
+						// let username = 'testuser';
+						JoblyApi.token = token;
 						let currentUser = await JoblyApi.getCurrentUser(username);
 						console.log(currentUser);
 						setCurrentUser(currentUser);
