@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-// import useForm from '../hooks/useForm';
 import Alert from '../auth/Alert';
 import JoblyApi from '../api/api';
 import UserContext from '../auth/UserContext';
