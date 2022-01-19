@@ -4,7 +4,7 @@ const useForm = (initialState) => {
 	const [ formData, setFormData ] = useState(initialState);
 
 	const handleChange = (e) => {
-		// e.persist();
+		e.persist();
 		setFormData((formData) => ({
 			...formData,
 			[e.target.name]: e.target.value
