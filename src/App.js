@@ -7,13 +7,14 @@ import Navbar from './routes/Navbar';
 import Routes from './routes/Routes';
 import UserContext from './auth/UserContext';
 import Spinner from './Spinner';
-// import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import useLocalStorage from './hooks/useLocalStorage';
 
 const App = () => {
 	const [ infoLoaded, setInfoLoaded ] = useState(false);
 	const [ token, setToken ] = useState(null);
 	const [ currentUser, setCurrentUser ] = useLocalStorage('jobly-token');
+	// const [ currentUser, setCurrentUser ] = useState(null);
 
 	useEffect(
 		function loadUserData() {

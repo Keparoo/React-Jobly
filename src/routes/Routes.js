@@ -7,7 +7,7 @@ import SignupForm from '../auth/SignupForm';
 import LoginForm from '../auth/LoginForm';
 import Profile from '../profiles/ProfileForm';
 import Homepage from '../homepage/Homepage';
-import JoblyApi from '../api/api';
+// import JoblyApi from '../api/api';
 
 const Routes = ({ login, signup }) => {
 	return (
