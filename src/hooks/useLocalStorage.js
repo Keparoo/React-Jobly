@@ -7,6 +7,7 @@ const useLocalStorage = (key, firstValue = null) => {
 
 	useEffect(
 		() => {
+			console.debug('hooks useLocalStorage useEffect', 'item=', item);
 			if (item === null) {
 				localStorage.removeItem(key);
 			} else {

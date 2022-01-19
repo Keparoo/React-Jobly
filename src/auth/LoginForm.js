@@ -14,7 +14,9 @@ const LoginForm = ({ login }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		let result = await login(formData);
+		// let result = await login(formData);
+		let result = await login({ username: 'testuser', password: 'password' });
+
 		if (result.success) {
 			history.push('/companies');
 		} else {
@@ -37,7 +39,8 @@ const LoginForm = ({ login }) => {
 									className="form-control"
 									type="text"
 									name="username"
-									value={formData.username}
+									value="testuser"
+									// value={formData.username}
 									onChange={handleChange}
 								/>
 							</div>
@@ -47,7 +50,8 @@ const LoginForm = ({ login }) => {
 									className="form-control"
 									type="password"
 									name="password"
-									value={formData.password}
+									value="password"
+									// value={formData.password}
 									onChange={handleChange}
 								/>
 							</div>

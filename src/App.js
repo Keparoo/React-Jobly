@@ -12,9 +12,8 @@ import useLocalStorage from './hooks/useLocalStorage';
 
 const App = () => {
 	const [ infoLoaded, setInfoLoaded ] = useState(false);
-	const [ token, setToken ] = useState(null);
-	const [ currentUser, setCurrentUser ] = useLocalStorage('jobly-token');
-	// const [ currentUser, setCurrentUser ] = useState(null);
+	const [ currentUser, setCurrentUser ] = useState(null);
+	const [ token, setToken ] = useLocalStorage('jobly-token');
 
 	useEffect(
 		function loadUserData() {
