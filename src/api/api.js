@@ -55,6 +55,20 @@ class JoblyApi {
 		return res.company;
 	}
 
+	/** Sign up for site */
+
+	static async signup(data) {
+		let res = await this.request('auth/register', data, 'post');
+		return res.token;
+	}
+
+	/** Login to site: get token from username & password */
+
+	static async login(data) {
+		let res = await this.request('auth/token', data, 'post');
+		return res.token;
+	}
+
 	// obviously, you'll add a lot here ...
 }
 
