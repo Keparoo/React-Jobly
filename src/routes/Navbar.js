@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ logout }) => {
 	return (
 		<nav className="Navbar navbar navbar-expand-md">
 			<Link className="navbar-brand" to="/">
@@ -35,9 +35,9 @@ const Navbar = () => {
 					</NavLink>
 				</li>
 				<li className="nav-item mr-4">
-					<NavLink className="nav-link" to="/logout">
-						Logout
-					</NavLink>
+					<Link className="nav-link" to="/" onClick={logout}>
+						Log out
+					</Link>
 				</li>
 			</ul>
 		</nav>
