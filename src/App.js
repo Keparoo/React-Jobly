@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import jwt from 'jsonwebtoken';
 
 import JoblyApi from './api/api';
 import './App.css';
 import Navbar from './routes/Navbar';
 import Routes from './routes/Routes';
 import UserContext from './auth/UserContext';
+import Spinner from './Spinner';
+import jwt from 'jsonwebtoken';
 
 const App = () => {
+	const [ infoLoaded, setInfoLoaded ] = useState(false);
 	const [ token, setToken ] = useState(null);
 	const [ currentUser, setCurrentUser ] = useState(null);
 
@@ -26,7 +28,9 @@ const App = () => {
 						setCurrentUser(null);
 					}
 				}
+				setInfoLoaded(true);
 			};
+			setInfoLoaded(false);
 			getCurrentUser();
 		},
 		[ token ]
@@ -58,6 +62,8 @@ const App = () => {
 			return { success: false, errors };
 		}
 	};
+
+	if (!infoLoaded) return <Spinner />;
 
 	return (
 		<BrowserRouter>
