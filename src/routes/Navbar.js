@@ -10,7 +10,7 @@ import './Navbar.css';
 
 const Navbar = ({ logout }) => {
 	const { currentUser } = useContext(UserContext);
-	console.debug('Navigation', 'currentUser=', currentUser);
+	console.debug('Navbar', 'currentUser=', currentUser);
 
 	const loggedIn = () => {
 		return (
