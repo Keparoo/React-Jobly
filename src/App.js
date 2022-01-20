@@ -14,6 +14,7 @@ const App = () => {
 	const [ infoLoaded, setInfoLoaded ] = useState(false);
 	const [ currentUser, setCurrentUser ] = useState(null);
 	const [ token, setToken ] = useLocalStorage('jobly-token');
+	const [ jobsAppliedIds, setJobsAppliedIds ] = useState(new Set([]));
 
 	useEffect(
 		function loadUserData() {
@@ -23,7 +24,6 @@ const App = () => {
 						let { username } = jwt_decode(token);
 						JoblyApi.token = token;
 						let currentUser = await JoblyApi.getCurrentUser(username);
-						console.log(currentUser);
 						setCurrentUser(currentUser);
 					} catch (err) {
 						console.error('Error loading user data', err);
@@ -65,11 +65,28 @@ const App = () => {
 		}
 	};
 
+	const hasAppliedToJob = (id) => {
+		return jobsAppliedIds.has(id);
+	};
+
+	const applyToJob = (id) => {
+		if (hasAppliedToJob(id)) return;
+		JoblyApi.applyToJob(currentUser.username, id);
+		setJobsAppliedIds(new Set([ ...jobsAppliedIds, id ]));
+	};
+
 	if (!infoLoaded) return <Spinner />;
 
 	return (
 		<BrowserRouter>
-			<UserContext.Provider value={{ currentUser, setCurrentUser }}>
+			<UserContext.Provider
+				value={{
+					currentUser,
+					setCurrentUser,
+					hasAppliedToJob,
+					applyToJob
+				}}
+			>
 				<div className="App">
 					<Navbar logout={logout} />
 					<Routes signup={signup} login={login} />
