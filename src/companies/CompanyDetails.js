@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import JoblyApi from '../api/api';
 import JobCardList from '../jobs/JobCardList';
 import CompanyCard from './CompanyCard';
-import Spinner from '../Spinner';
+import Spinner from '../common/Spinner';
 
 const CompanyDetails = () => {
 	const { handle } = useParams();

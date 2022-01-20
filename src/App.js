@@ -9,7 +9,7 @@ import UserContext from './auth/UserContext';
 
 import Navbar from './routes/Navbar';
 import Routes from './routes/Routes';
-import Spinner from './Spinner';
+import Spinner from './common/Spinner';
 
 // Local storage key name for token: log in persistence
 export const TOKEN_STORAGE_ID = 'jobly-token';

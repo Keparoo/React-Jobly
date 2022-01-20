@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import JoblyApi from '../api/api';
 import SearchForm from '../SearchForm';
 import JobCardList from './JobCardList';
-import Spinner from '../Spinner';
+import Spinner from '../common/Spinner';
 
 const JobList = () => {
 	const [ jobs, setJobs ] = useState([]);

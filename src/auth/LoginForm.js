@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useForm from '../hooks/useForm';
 import { useHistory } from 'react-router-dom';
 // import './LoginForm.css';
-import Alert from './Alert';
+import Alert from '../common/Alert';
 
 const LoginForm = ({ login }) => {
 	const history = useHistory();

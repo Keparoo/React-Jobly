@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import Alert from '../auth/Alert';
+import Alert from '../common/Alert';
 import JoblyApi from '../api/api';
 import UserContext from '../auth/UserContext';
 // import './ProfileForm.css';
