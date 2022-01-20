@@ -3,8 +3,14 @@ import { Link, NavLink } from 'react-router-dom';
 import UserContext from '../auth/UserContext';
 import './Navbar.css';
 
+/* Navigation bar for site
+    Rendered on every page
+    Rendered by App\
+*/
+
 const Navbar = ({ logout }) => {
 	const { currentUser } = useContext(UserContext);
+	console.debug('Navigation', 'currentUser=', currentUser);
 
 	const loggedIn = () => {
 		return (
