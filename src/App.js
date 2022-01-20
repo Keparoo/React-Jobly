@@ -25,6 +25,7 @@ const App = () => {
 						JoblyApi.token = token;
 						let currentUser = await JoblyApi.getCurrentUser(username);
 						setCurrentUser(currentUser);
+						setJobsAppliedIds(new Set(currentUser.applications));
 					} catch (err) {
 						console.error('Error loading user data', err);
 						setCurrentUser(null);
