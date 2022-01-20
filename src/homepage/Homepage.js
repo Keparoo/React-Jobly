@@ -3,8 +3,19 @@ import { Link } from 'react-router-dom';
 import './Homepage.css';
 import UserContext from '../auth/UserContext';
 
+/* Hompage
+
+    Render welcome message user is logged in
+    Render login/register buttons if no currentUser
+
+    Routed at /
+    Routes calls Homepage
+*/
+
 const Homepage = () => {
 	const { currentUser } = useContext(UserContext);
+	console.debug('Homepage', 'currentUser=', currentUser);
+
 	return (
 		<div className="Homepage">
 			<div className="container text-center">
