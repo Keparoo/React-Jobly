@@ -4,18 +4,39 @@ import { useHistory } from 'react-router-dom';
 // import './LoginForm.css';
 import Alert from '../common/Alert';
 
+/* Login Form
+
+  Displays login form uses useForm hook to manage form state
+  On submit: calls login function prop, redirects to /companies route
+
+  Routes calls LoginForm, LoginForm calls Alert
+  Routed as /login
+*/
+
 const LoginForm = ({ login }) => {
 	const history = useHistory();
+	// custom hook handles state, handleChange and resetForm
+	// useForm takes the form initial/reset state as a prop
 	const [ formData, handleChange, resetForm ] = useForm({
 		username: '',
 		password: ''
 	});
 	const [ formErrors, setFormErrors ] = useState([]);
 
+	console.debug(
+		'LoginForm',
+		'login=',
+		typeof login,
+		'formData=',
+		formData,
+		'formErrors',
+		formErrors
+	);
+
+	// Calls login function prop, if success redirect to /companies
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let result = await login(formData);
-		// let result = await login({ username: 'testuser', password: 'password' });
 
 		if (result.success) {
 			history.push('/companies');
@@ -39,7 +60,8 @@ const LoginForm = ({ login }) => {
 									className="form-control"
 									type="text"
 									name="username"
-									// value="testuser"
+									// hardcode value for dev
+									// value=""
 									value={formData.username}
 									onChange={handleChange}
 								/>
@@ -50,7 +72,8 @@ const LoginForm = ({ login }) => {
 									className="form-control"
 									type="password"
 									name="password"
-									// value="password"
+									// hardcode value for dev
+									// value=""
 									value={formData.password}
 									onChange={handleChange}
 								/>

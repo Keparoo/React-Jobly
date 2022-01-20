@@ -4,8 +4,20 @@ import { useHistory } from 'react-router-dom';
 // import './SignupForm.css';
 import Alert from '../common/Alert';
 
+/* Signup Form
+
+  Renders form and uses useForm hook to maintain state
+  On submit: calls signup function prop and redirects to /companies
+
+  Routes call SignupForm, SignupForm calls Alert, useForm hook
+  Routed as /signup
+*/
+
 const SignupForm = ({ signup }) => {
 	const history = useHistory();
+
+	// useForm custom hook manages state, handleChange and resetForm
+	// initialState/resetState is passed in to useForm as prop
 	const [ formData, handleChange, resetForm ] = useForm({
 		username: '',
 		password: '',
@@ -15,6 +27,17 @@ const SignupForm = ({ signup }) => {
 	});
 	const [ formErrors, setFormErrors ] = useState([]);
 
+	console.debug(
+		'SignupForm',
+		'signup=',
+		typeof signup,
+		'formData=',
+		formData,
+		'formErrors=',
+		formErrors
+	);
+
+	// Calls signup function prop, if successful redirects to /companies
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let result = await signup(formData);
