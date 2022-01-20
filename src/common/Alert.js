@@ -1,5 +1,11 @@
 import React from 'react';
 
+/* Component for showing bootstrap alerts
+
+  LoginForm, SignupForm, ProfileForm call Alert
+
+*/
+
 function Alert({ type = 'danger', messages = [] }) {
 	console.debug('Alert', 'type=', type, 'messages=', messages);
 
