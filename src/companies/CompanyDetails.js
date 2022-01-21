@@ -34,7 +34,7 @@ const CompanyDetails = () => {
 	if (!company) return <Spinner />;
 
 	return (
-		<div className="CompanyDetails col-md-8 offset-md-2">
+		<div className="CompanyDetails col-md-8 offset-md-2 mt-4">
 			<CompanyCard
 				name={company.name}
 				description={company.description}
