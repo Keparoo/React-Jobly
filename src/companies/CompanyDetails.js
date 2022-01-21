@@ -6,16 +6,24 @@ import JobCardList from '../jobs/JobCardList';
 import CompanyCard from './CompanyCard';
 import Spinner from '../common/Spinner';
 
+/* Renders A CompanyCard with company info and a list of jobs related to the company
+
+  Routed at /companies/:handle
+
+  Routes calls CompanyDetail, CompanyDetail calls CompanyCard, JobCardList
+*/
+
 const CompanyDetails = () => {
 	const { handle } = useParams();
+	console.debug('CompanyDetails', 'handle=', handle);
+
 	const history = useHistory();
 	const [ company, setCompany ] = useState(null);
 
 	useEffect(
 		() => {
 			async function getCompany() {
-				let company = await JoblyApi.getCompany(handle);
-				setCompany(company);
+				setCompany(await JoblyApi.getCompany(handle));
 			}
 
 			getCompany();
@@ -26,7 +34,7 @@ const CompanyDetails = () => {
 	if (!company) return <Spinner />;
 
 	return (
-		<div className="JobList col-md-8 offset-md-2">
+		<div className="CompanyDetails col-md-8 offset-md-2">
 			<CompanyCard
 				name={company.name}
 				description={company.description}

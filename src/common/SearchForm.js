@@ -13,7 +13,7 @@ import './SearchForm.css';
 */
 
 const SearchForm = ({ setQuery }) => {
-	console.debug('SearchForm', 'searchFor=', typeof searchFor);
+	console.debug('SearchForm', 'searchFor=', typeof setQuery);
 
 	// Custom hook to takecare to set formData state, handleChange in form and reset form
 	// useForm takes the initialValue/resetValue of form as a prop

@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 // import './CompanyCardList.css';
 import CompanyCard from './CompanyCard';
 
+/* Render a list of cards containing CompanyCards
+
+    Called by CompanyList, Calls CompanyCard
+*/
+
 const CompanyCardList = ({ companies }) => {
+	console.debug('CompanyCardList');
+
 	return (
 		<div className="CompanyCardList">
 			{companies.map((c) => (
