@@ -4,6 +4,18 @@ import JoblyApi from '../api/api';
 import UserContext from '../auth/UserContext';
 // import './ProfileForm.css';
 
+/* User Profile editigin form
+
+    Displays the values of the current user profile in a form
+    Submitting the form calls the API to update data and triggers
+    reload of info throughout the site
+
+    If confirmed successful, an alert indicates success
+
+    Routed as /profile
+    Routes call ProfileForm, ProfileForm calls Alert
+*/
+
 const ProfileForm = () => {
 	const { currentUser, setCurrentUser } = useContext(UserContext);
 	const [ formData, setFormData ] = useState({
@@ -17,6 +29,23 @@ const ProfileForm = () => {
 	const [ formErrors, setFormErrors ] = useState([]);
 	const [ saveConfirmed, setSaveConfirmed ] = useState(false);
 
+	console.debug(
+		'ProfileForm',
+		'currentUser=',
+		currentUser,
+		'formData=',
+		formData,
+		'formErrors=',
+		formErrors,
+		'saveConfirmed=',
+		saveConfirmed
+	);
+
+	// On submit, attempt to save to API and report any errors
+	// If success: clear previous error messages and password
+	//    show save confirmed message
+	//    set current user info throughout the site
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -26,6 +55,7 @@ const ProfileForm = () => {
 			email: formData.email,
 			password: formData.password
 		};
+
 		let username = formData.username;
 		let updatedUser;
 
@@ -40,9 +70,11 @@ const ProfileForm = () => {
 		setFormErrors([]);
 		setSaveConfirmed(true);
 
+		// Trigger reloadin of user info throughout site
 		setCurrentUser(updatedUser);
 	};
 
+	// Handle state change of form fields
 	const handleChange = (evt) => {
 		const { name, value } = evt.target;
 		setFormData((f) => ({
