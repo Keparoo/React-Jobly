@@ -1,3 +1,8 @@
+# This app is currently deployed to the following url
+```
+http://hot-soap.surge.sh
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
