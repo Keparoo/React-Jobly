@@ -2,23 +2,33 @@ import React, { useContext, useEffect, useState } from 'react';
 import './JobCard.css';
 import UserContext from '../auth/UserContext';
 
+/* Render a card with job information
+
+    JobCardList calls JobCard
+*/
+
 const JobCard = ({ id, title, salary, equity, company }) => {
+	console.debug('JobCard');
+
 	const { hasAppliedToJob, applyToJob } = useContext(UserContext);
 	const [ applied, setApplied ] = useState(false);
 
 	useEffect(
-		function updateApplied() {
+		() => {
+			console.debug('JobCard useEffect updateAppliedStatus', 'id=', id);
 			setApplied(hasAppliedToJob(id));
 		},
 		[ id, hasAppliedToJob ]
 	);
 
+	// Apply for a job
 	const handleApply = async (e) => {
 		if (hasAppliedToJob(id)) return;
 		applyToJob(id);
 		setApplied(true);
 	};
 
+	// Format salary with commas
 	function formatSalary(salary) {
 		const digitsRev = [];
 		const salaryStr = salary.toString();
@@ -33,8 +43,6 @@ const JobCard = ({ id, title, salary, equity, company }) => {
 
 	return (
 		<div className="JobCard card">
-			{' '}
-			{applied}
 			<div className="card-body">
 				<h5 className="card-title">{title}</h5>
 				<p>{company}</p>
